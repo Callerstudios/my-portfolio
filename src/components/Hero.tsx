@@ -5,9 +5,9 @@ import myPhoto from "../assets/photo.jpg"
 const Hero = () => {
   return (
     <section
-      className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center text-center md:text-left px-8 pt-24 gap-12"
+      className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center text-center md:text-left px-8 gap-12"
       id="hero"
-    >
+    > 
       {/* Text Section */}
       <div className="flex-1">
         <motion.h1
@@ -16,7 +16,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Hi, I’m <span className="text-green-500">Robert Garcia</span>
+          Hi, I’m <span className="text-green-500">Busari Roqeeb</span>
         </motion.h1>
         <motion.p
           className="mt-6 text-lg text-gray-300 max-w-xl"
@@ -25,7 +25,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           A passionate{" "}
-          <span className="text-green-400">Fullstack Developer</span>
+          <span className="text-green-400">Frontend Developer </span>
           crafting modern, scalable, and user-friendly web experiences.
         </motion.p>
         <motion.div
