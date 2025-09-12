@@ -5,10 +5,12 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
+import AnimatedCursor from "./components/AnimatedCursor";
 
 function App() {
   return (
     <div className="bg-black min-h-screen min-w-screen text-white">
+      <AnimatedCursor/>
       <Navbar />
       <Hero />
       <Projects />
