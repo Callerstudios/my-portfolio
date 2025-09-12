@@ -1,4 +1,6 @@
-type Project = {
+import { motion } from "framer-motion";
+
+export type Project = {
   title: string;
   description: string;
   image: string;
@@ -35,43 +37,81 @@ const projects: Project[] = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-8 bg-black text-white">
-      <h2 className="text-3xl font-bold mb-12">Featured Projects</h2>
-      <div className="space-y-12">
+    <section id="projects" className="py-20 px-6 md:px-12 bg-black text-white">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold mb-16 text-center"
+      >
+        Featured Projects
+      </motion.h2>
+
+      <div className="space-y-20">
         {projects.map((proj, i) => (
-          <div key={i} className="flex flex-col md:flex-row gap-8">
-            <img
+          <motion.div
+            key={i}
+            className={`flex flex-col md:flex-row items-center gap-8 ${
+              i % 2 === 1 ? "md:flex-row-reverse" : ""
+            }`}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: i * 0.2 }}
+            viewport={{ once: true }}
+          >
+            {/* Project Image */}
+            <motion.img
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
               src={proj.image}
               alt={proj.title}
-              className="w-full md:w-1/3 rounded-lg shadow-lg"
+              className="w-full md:w-1/2 rounded-xl shadow-lg"
             />
-            <div>
-              <h3 className="text-2xl font-semibold mb-2">{proj.title}</h3>
+
+            {/* Project Content */}
+            <div className="md:w-1/2">
+              <h3 className="text-2xl md:text-3xl font-semibold mb-3">
+                {proj.title}
+              </h3>
               <p className="text-gray-300 mb-4">{proj.description}</p>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-gray-400 mb-4">
                 <strong>Year:</strong> {proj.year} &nbsp; | &nbsp;
                 <strong>Client:</strong> {proj.client}
               </p>
-              <div className="flex gap-2 mt-3">
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-6">
                 {proj.tags.map((tag) => (
-                  <span
+                  <motion.span
                     key={tag}
-                    className="bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full"
+                    whileHover={{ scale: 1.1 }}
+                    className="bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full cursor-default"
                   >
                     {tag}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
-              <div className="mt-4 flex gap-4">
-                <a href={proj.demo} className="text-lime-400 hover:underline">
-                  View Project
-                </a>
-                <a href={proj.github} className="text-lime-400 hover:underline">
-                  See on GitHub
-                </a>
+
+              {/* Links */}
+              <div className="flex gap-6">
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  href={proj.demo}
+                  className="text-lime-400 font-medium hover:underline"
+                >
+                  🔗 View Project
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
+                  href={proj.github}
+                  className="text-lime-400 font-medium hover:underline"
+                >
+                  💻 GitHub
+                </motion.a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
