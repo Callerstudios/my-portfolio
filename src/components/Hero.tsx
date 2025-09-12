@@ -5,7 +5,7 @@ import myPhoto from "../assets/photo.jpg"
 const Hero = () => {
   return (
     <section
-      className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center text-center md:text-left px-8 gap-12"
+      className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center text-center max-md:pt-35 max-sm:pt-40 md:text-left px-8 gap-12"
       id="hero"
     > 
       {/* Text Section */}
