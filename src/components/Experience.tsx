@@ -4,14 +4,14 @@ const experiences = [
   {
     role: "Freelance Developer",
     company: "Self-employed",
-    period: "Nov 2021 – Present",
+    period: "Jan 2022 – Present",
     description:
       "Worked on client projects building responsive websites and applications.",
   },
   {
     role: "Frontend Intern",
     company: "Tech Company",
-    period: "Sep 2020 – Nov 2021",
+    period: "Jul 2024 – Dec 2024",
     description:
       "Built UI components and collaborated with backend developers.",
   },

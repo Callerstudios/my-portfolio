@@ -1,4 +1,8 @@
 import { motion } from "framer-motion";
+import cobuildImg from "../assets/cobuild.png";
+import cvbuilderImg from "../assets/cvbuilder.png";
+import playpalImg from "../assets/playpal.png";
+import cryptlyImg from "../assets/cryptly.png";
 
 export type Project = {
   title: string;
@@ -8,32 +12,54 @@ export type Project = {
   client: string;
   tags: string[];
   demo: string;
-  github: string;
+  github?: string;
 };
 
 const projects: Project[] = [
   {
-    title: "Promotional Landing Page",
-    description: "A landing page for a favorite show with responsive design.",
-    image: "/project1.png",
-    year: "2023",
+    title: "Co Build",
+    description:
+      "A collaborative learning platform with rooms, modules, and interactive dashboards.",
+    image: cobuildImg,
+    year: "2025",
     client: "Personal",
-    tags: ["React", "Tailwind"],
-    demo: "#",
-    github: "#",
+    tags: ["React", "TypeScript", "Redux", "CSS"],
+    demo: "https://co-build-mu.vercel.app/",
   },
   {
-    title: "Blog Site for World News",
+    title: "CV Builder",
     description:
-      "Modern blog site with multiple categories and responsive layout.",
-    image: "/project2.png",
-    year: "2022",
-    client: "World News",
-    tags: ["Vue", "CSS"],
-    demo: "#",
-    github: "#",
+      "A resume builder that helps users generate professional CVs quickly with custom templates.",
+    image: cvbuilderImg,
+    year: "2024",
+    client: "Personal",
+    tags: ["React", "Firebase", "Express"],
+    demo: "https://resume-maker-rw61.vercel.app/",
+    github: "https://github.com/Callerstudios/resume-maker",
+  },
+  {
+    title: "PlayPal",
+    description:
+      "A gaming platform where users can play, earn coins, and spend them in the in-game store.",
+    image: playpalImg,
+    year: "2024",
+    client: "Personal",
+    tags: ["React", "Firebase", "Game Dev"],
+    demo: "https://games-lab-zeta.vercel.app/",
+  },
+  {
+    title: "Cryptly",
+    description:
+      "An interactive platform to understand the basics of encryption through hands-on tools and fun experiments. Explore Caesar ciphers, modern encryption, and why data security matters.",
+    image: cryptlyImg,
+    year: "2023",
+    client: "Personal",
+    tags: ["JavaScript", "React", "Education"],
+    demo: "https://cryptly-snowy.vercel.app/",
+    github: "https://github.com/Callerstudios/my-encryption-app",
   },
 ];
+
 
 const Projects = () => {
   return (
@@ -98,17 +124,23 @@ const Projects = () => {
                 <motion.a
                   whileHover={{ scale: 1.1 }}
                   href={proj.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-lime-400 font-medium hover:underline"
                 >
                   🔗 View Project
                 </motion.a>
-                <motion.a
-                  whileHover={{ scale: 1.1 }}
-                  href={proj.github}
-                  className="text-lime-400 font-medium hover:underline"
-                >
-                  💻 GitHub
-                </motion.a>
+                {proj.github && (
+                  <motion.a
+                    whileHover={{ scale: 1.1 }}
+                    href={proj.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lime-400 font-medium hover:underline"
+                  >
+                    💻 GitHub
+                  </motion.a>
+                )}
               </div>
             </div>
           </motion.div>

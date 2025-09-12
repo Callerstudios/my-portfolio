@@ -1,6 +1,7 @@
 // src/components/About.tsx
 import { motion } from "framer-motion";
 import Reveal from "./Reveal";
+import myPhoto from "../assets/profile-photo.jpg"
 
 const About = () => {
   return (
@@ -17,7 +18,7 @@ const About = () => {
         transition={{ duration: 0.8 }}
       >
         <motion.img
-          src="/profile.jpg" // Replace with your actual profile image
+          src={myPhoto} // Replace with your actual profile image
           alt="Profile"
           className="w-64 h-64 rounded-2xl object-cover border-4 border-green-500 shadow-lg"
           animate={{
@@ -51,7 +52,7 @@ const About = () => {
             href="/resume.pdf"
             className="inline-block mt-2 px-6 py-3 bg-green-500 text-black rounded-lg font-semibold hover:bg-green-400 transition-transform transform hover:scale-105"
           >
-            Download Resume
+            View Resume
           </a>
         </Reveal>
       </div>

@@ -27,10 +27,10 @@ const Contact = () => {
       >
         Say hello at{" "}
         <a
-          href="mailto:your@email.com"
+          href="mailto:busariroqeeb16@gmail.com"
           className="text-lime-400 hover:underline"
         >
-          your@email.com
+          busariroqeeb16@gmail.com
         </a>
       </motion.p>
 
@@ -43,7 +43,7 @@ const Contact = () => {
         className="flex justify-center gap-6 mb-10"
       >
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/beekaydacreator"
           target="_blank"
           rel="noopener noreferrer"
           className="text-lime-400 hover:text-lime-300 transition text-lg font-medium"
@@ -51,7 +51,7 @@ const Contact = () => {
           LinkedIn
         </a>
         <a
-          href="https://github.com"
+          href="https://github.com/Callerstudios"
           target="_blank"
           rel="noopener noreferrer"
           className="text-lime-400 hover:text-lime-300 transition text-lg font-medium"
@@ -59,7 +59,7 @@ const Contact = () => {
           GitHub
         </a>
         <a
-          href="mailto:your@email.com"
+          href="mailto:busariroqeeb16@gmail.com"
           className="text-lime-400 hover:text-lime-300 transition text-lg font-medium"
         >
           Email
