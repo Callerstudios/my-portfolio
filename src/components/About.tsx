@@ -40,7 +40,7 @@ const About = () => {
         <Reveal delay={0.2}>
           <p className="text-gray-300 leading-relaxed mb-6">
             I’m a passionate{" "}
-            <span className="text-green-400">Fullstack Developer</span>
+            <span className="text-green-400">Fullstack Developer </span>
             with experience in building responsive and scalable web
             applications. I love working with modern technologies like React,
             Vue, Node.js, and TypeScript to create beautiful, functional, and

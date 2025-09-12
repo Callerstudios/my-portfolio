@@ -11,6 +11,8 @@ const skills = [
   "Firebase",
   "TailwindCSS",
   "Git",
+  "Redux",
+  "Express"
 ];
 
 const container = {

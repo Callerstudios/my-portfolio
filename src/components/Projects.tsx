@@ -54,12 +54,11 @@ const projects: Project[] = [
     image: cryptlyImg,
     year: "2023",
     client: "Personal",
-    tags: ["JavaScript", "React", "Education"],
+    tags: ["JavaScript", "React", "Education", "Typescript"],
     demo: "https://cryptly-snowy.vercel.app/",
     github: "https://github.com/Callerstudios/my-encryption-app",
   },
 ];
-
 
 const Projects = () => {
   return (

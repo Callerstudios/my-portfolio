@@ -25,7 +25,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           A passionate{" "}
-          <span className="text-green-400">Frontend Developer </span>
+          <span className="text-green-400">Fullstack Developer </span>
           crafting modern, scalable, and user-friendly web experiences.
         </motion.p>
         <motion.div
