@@ -1,5 +1,6 @@
 // src/components/Hero.tsx
 import { motion } from "framer-motion";
+import myPhoto from "../assets/photo.jpg"
 
 const Hero = () => {
   return (
@@ -60,7 +61,7 @@ const Hero = () => {
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <motion.img
-          src="/profile.jpg" // replace with your actual image
+          src={myPhoto} // replace with your actual image
           alt="Profile"
           className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-green-500 object-cover shadow-lg"
           animate={{
