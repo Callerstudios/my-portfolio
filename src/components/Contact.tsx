@@ -21,23 +21,23 @@ const ContactForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    emailjs
-      .send(
-        "your_service_id", // Replace with your EmailJS service ID
-        "your_template_id", // Replace with your EmailJS template ID
-        formData,
-        "your_public_key" // Replace with your EmailJS public key
-      )
-      .then(
-        () => {
-          setStatus("Message sent successfully!");
-          setFormData({ name: "", email: "", subject: "", message: "" });
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setStatus("Failed to send message. Please try again.");
-        }
-      );
+      emailjs
+        .send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
+          formData,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+        )
+        .then(
+          () => {
+            setStatus("Message sent successfully!");
+            setFormData({ name: "", email: "", subject: "", message: "" });
+          },
+          (error) => {
+            console.error("FAILED...", error);
+            setStatus("Failed to send message. Please try again.");
+          }
+        );
   };
 
   return (
