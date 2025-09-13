@@ -10,6 +10,7 @@ const ContactForm = () => {
     message: "",
   });
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -20,24 +21,32 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+    setStatus("");
 
-      emailjs
-        .send(
-          import.meta.env.VITE_EMAILJS_SERVICE_ID!,
-          import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
-          formData,
-          import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
-        )
-        .then(
-          () => {
-            setStatus("Message sent successfully!");
-            setFormData({ name: "", email: "", subject: "", message: "" });
-          },
-          (error) => {
-            console.error("FAILED...", error);
-            setStatus("Failed to send message. Please try again.");
-          }
-        );
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+      )
+      .then(
+        () => {
+          setStatus("✅ Message sent successfully!");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          setLoading(false);
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          setStatus("❌ Failed to send message. Please try again.");
+          setLoading(false);
+        }
+      ).catch((error) => {
+        console.error("ERROR...", error);
+        setStatus("❌ An unexpected error occurred. Please try again.");
+        setLoading(false);
+      });
   };
 
   return (
@@ -85,13 +94,21 @@ const ContactForm = () => {
         required
         className="w-full p-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-lime-400 outline-none transition"
       />
+
       <motion.button
         type="submit"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-500 transition w-full"
+        whileHover={{ scale: loading ? 1 : 1.05 }}
+        whileTap={{ scale: loading ? 1 : 0.95 }}
+        disabled={loading}
+        className={`px-6 py-3 rounded-lg font-semibold w-full transition 
+          ${
+            loading
+              ? "bg-gray-500 text-gray-300 cursor-not-allowed"
+              : "bg-lime-400 text-black hover:bg-lime-500"
+          }
+        `}
       >
-        Submit
+        {loading ? "Sending..." : "Submit"}
       </motion.button>
 
       {status && (
