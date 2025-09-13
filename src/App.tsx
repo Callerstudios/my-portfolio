@@ -6,10 +6,12 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import AnimatedCursor from "./components/AnimatedCursor";
+import BackgroundName from "./components/BackgroundName";
 
 function App() {
   return (
     <div className="bg-black min-h-screen min-w-screen max-w-screen text-white overflow-x-hidden">
+      <BackgroundName/>
       <AnimatedCursor/>
       <Navbar />
       <Hero />
