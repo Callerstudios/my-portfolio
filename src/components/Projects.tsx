@@ -7,12 +7,13 @@ import cryptlyImg from "../assets/cryptly.png";
 export type Project = {
   title: string;
   description: string;
-  image: string;
+  image?: string;
   year: string;
   client: string;
   tags: string[];
   demo: string;
   github?: string;
+  video?: string;
 };
 
 const projects: Project[] = [
@@ -47,6 +48,18 @@ const projects: Project[] = [
     tags: ["React", "Firebase", "Game Dev"],
     demo: "https://games-lab-zeta.vercel.app/",
   },
+  {
+    title: "3DSS",
+    description: "A character swinging animation built with React and CSS.",
+    video: "https://3dss.vercel.app/", // 👈 hosted project link
+    year: "2025",
+    client: "Personal",
+    tags: ["React", "CSS", "Animation"],
+    demo: "https://3dss.vercel.app/",
+    github: "https://github.com/Callerstudios/3dss",
+
+  },
+
   {
     title: "Cryptly",
     description:
@@ -85,14 +98,22 @@ const Projects = () => {
             transition={{ duration: 0.8, delay: i * 0.2 }}
             viewport={{ once: true }}
           >
-            {/* Project Image */}
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              src={proj.image}
-              alt={proj.title}
-              className="w-full md:w-1/2 rounded-xl shadow-lg"
-            />
+            {proj.video ? (
+              <motion.iframe
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                src={proj.video}
+                className="w-full md:w-1/2 h-72 rounded-xl shadow-lg border border-gray-700"
+              />
+            ) : (
+              <motion.img
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                src={proj.image}
+                alt={proj.title}
+                className="w-full md:w-1/2 rounded-xl shadow-lg"
+              />
+            )}
 
             {/* Project Content */}
             <div className="md:w-1/2">
