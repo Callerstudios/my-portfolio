@@ -1,110 +1,104 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 
-const Contact = () => {
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "your_service_id", // Replace with your EmailJS service ID
+        "your_template_id", // Replace with your EmailJS template ID
+        formData,
+        "your_public_key" // Replace with your EmailJS public key
+      )
+      .then(
+        () => {
+          setStatus("Message sent successfully!");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+        },
+        (error) => {
+          console.error("FAILED...", error);
+          setStatus("Failed to send message. Please try again.");
+        }
+      );
+  };
+
   return (
-    <section
-      id="contact"
-      className="py-20 px-6 md:px-12 bg-black text-white text-center"
+    <motion.form
+      onSubmit={handleSubmit}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.4 }}
+      viewport={{ once: true }}
+      className="space-y-4 max-w-lg mx-auto text-left w-full p-6"
     >
-      {/* Section Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold mb-6"
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        value={formData.name}
+        onChange={handleChange}
+        required
+        className="w-full p-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-lime-400 outline-none transition"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+        required
+        className="w-full p-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-lime-400 outline-none transition"
+      />
+      <input
+        type="text"
+        name="subject"
+        placeholder="Subject"
+        value={formData.subject}
+        onChange={handleChange}
+        required
+        className="w-full p-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-lime-400 outline-none transition"
+      />
+      <textarea
+        name="message"
+        placeholder="Message"
+        rows={5}
+        value={formData.message}
+        onChange={handleChange}
+        required
+        className="w-full p-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-lime-400 outline-none transition"
+      />
+      <motion.button
+        type="submit"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-500 transition w-full"
       >
-        Let&apos;s Connect
-      </motion.h2>
+        Submit
+      </motion.button>
 
-      {/* Subtitle */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="text-gray-300 mb-6"
-      >
-        Say hello at{" "}
-        <a
-          href="mailto:busariroqeeb16@gmail.com"
-          className="text-lime-400 hover:underline"
-        >
-          busariroqeeb16@gmail.com
-        </a>
-      </motion.p>
-
-      {/* Social Links */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        viewport={{ once: true }}
-        className="flex justify-center gap-6 mb-10"
-      >
-        <a
-          href="https://www.linkedin.com/in/beekaydacreator"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-lime-400 hover:text-lime-300 transition text-lg font-medium"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/Callerstudios"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-lime-400 hover:text-lime-300 transition text-lg font-medium"
-        >
-          GitHub
-        </a>
-        <a
-          href="mailto:busariroqeeb16@gmail.com"
-          className="text-lime-400 hover:text-lime-300 transition text-lg font-medium"
-        >
-          Email
-        </a>
-      </motion.div>
-
-      {/* Contact Form */}
-      <motion.form
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        viewport={{ once: true }}
-        className="space-y-4 max-w-lg mx-auto text-left"
-      >
-        <input
-          type="text"
-          placeholder="Name"
-          className="w-full p-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-lime-400 outline-none transition"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full p-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-lime-400 outline-none transition"
-        />
-        <input
-          type="text"
-          placeholder="Subject"
-          className="w-full p-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-lime-400 outline-none transition"
-        />
-        <textarea
-          placeholder="Message"
-          rows={5}
-          className="w-full p-3 rounded-lg bg-gray-800 text-white focus:ring-2 focus:ring-lime-400 outline-none transition"
-        ></textarea>
-        <motion.button
-          type="submit"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-lime-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-lime-500 transition w-full"
-        >
-          Submit
-        </motion.button>
-      </motion.form>
-    </section>
+      {status && (
+        <p className="mt-3 text-center text-sm text-gray-300">{status}</p>
+      )}
+    </motion.form>
   );
 };
 
-export default Contact;
+export default ContactForm;

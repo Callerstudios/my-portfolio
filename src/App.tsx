@@ -9,7 +9,7 @@ import AnimatedCursor from "./components/AnimatedCursor";
 
 function App() {
   return (
-    <div className="bg-black min-h-screen min-w-screen text-white">
+    <div className="bg-black min-h-screen min-w-screen max-w-screen text-white overflow-x-hidden">
       <AnimatedCursor/>
       <Navbar />
       <Hero />
