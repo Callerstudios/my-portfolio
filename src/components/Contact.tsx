@@ -46,6 +46,7 @@ const ContactForm = () => {
 
   return (
     <motion.form
+    id="contact"
       onSubmit={handleSubmit}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
