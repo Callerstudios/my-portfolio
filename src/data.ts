@@ -90,7 +90,7 @@ export const projects: Project[] = [
     image: playpalImg,
     year: "2024",
     tags: ["React", "Firebase", "Game Dev"],
-    demo: "https://games-lab-zeta.vercel.app/",
+    demo: "https://playpal-games.vercel.app/",
   },
 ];
 
