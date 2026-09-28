@@ -1,16 +1,16 @@
-// Keep your existing image imports here; adjust the paths to match your assets folder.
 import cobuildImg from "./assets/cobuild.png";
+import postframeImg from "./assets/postframe.png";
 import cvbuilderImg from "./assets/cvbuilder.png";
 import playpalImg from "./assets/playpal.png";
-import cryptlyImg from "./assets/cryptly.png";
+import restaurantImg from "./assets/restaurant.png";
 
 export const profile = {
   name: "Busari Roqeeb",
-  role: "Full-stack & Game Developer",
+  role: "Full-stack Software Engineer",
   tagline:
-    "I build fast, polished web apps and games, from React interfaces to Node and Firebase backends to Unity gameplay.",
+    "I build polished web applications and reliable backend systems, from React interfaces to Node.js and ASP.NET Core APIs.",
   about:
-    "I'm a full-stack developer who enjoys turning ideas into products people actually use. I work across React, TypeScript, Node.js and Firebase on the web, and build games in Unity. I care about clean architecture, smooth interaction and shipping work that holds up in production.",
+    "I'm a full-stack software engineer who enjoys turning ideas into products people can actually use. I work across React, TypeScript, Node.js, Express, ASP.NET Core, and SQL databases. I care about clean architecture, maintainable code, reliable APIs, and building products that hold up beyond the initial prototype.",
   email: "busariroqeeb16@gmail.com",
   github: "https://github.com/Callerstudios",
   resume: "/resume.pdf",
@@ -23,37 +23,65 @@ export type Project = {
   image?: string;
   year: string;
   tags: string[];
-  demo: string;
+  demo?: string;
   github?: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "Co Build",
+    title: "CoBuild",
     description:
-      "A collaborative learning platform with rooms, modules and interactive dashboards.",
+      "A collaborative learning platform with real-world users, combining a React frontend with Node.js, Express, and Firestore backend services.",
     image: cobuildImg,
     year: "2025",
-    tags: ["React", "TypeScript", "Redux", "CSS"],
-    demo: "https://co-build-mu.vercel.app/",
+    tags: ["React", "TypeScript", "Node.js", "Express", "Firestore"],
+    demo: "https://cobuild.cv/",
   },
   {
-    title: "3DSS",
-    description: "A character swinging animation built with React and CSS.",
-    year: "2025",
-    tags: ["React", "CSS", "Animation"],
-    demo: "https://3dss.vercel.app/",
-    github: "https://github.com/Callerstudios/3dss",
+    title: "Postframe",
+    description:
+      "A browser-based tool for composing technical content, social posts, quotes, and threads into shareable visual formats.",
+    image: postframeImg,
+    year: "2026",
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    demo: "https://postframes.vercel.app/",
+    github: "https://github.com/Callerstudios/postframe",
+  },
+  {
+    title: "Restaurant Ordering API",
+    description:
+      "A REST API for restaurant ordering with JWT authentication, role-based authorization, relational data modeling, and transaction-safe order processing.",
+    year: "2026",
+    image: restaurantImg,
+    tags: ["Node.js", "Express", "TypeScript", "MySQL"],
+    demo: "https://restaurant-ordering-api-uav0.onrender.com/docs/",
+    github: "https://github.com/Callerstudios/restaurant-ordering-api",
+  },
+  {
+    title: "Developer Habit Tracker",
+    description:
+      "A REST API for tracking developer habits with JWT authentication, HATEOAS, pagination, filtering, validation, and PostgreSQL persistence.",
+    year: "2026",
+    tags: ["C#", "ASP.NET Core", "EF Core", "PostgreSQL"],
+    github: "https://github.com/Callerstudios/DevHabit",
   },
   {
     title: "CV Builder",
     description:
-      "A resume builder that generates professional CVs in minutes with custom templates.",
+      "A web application for creating professional CVs with customizable templates and persistent application data.",
     image: cvbuilderImg,
     year: "2024",
     tags: ["React", "Firebase", "Express"],
-    demo: "https://resume-maker-rw61.vercel.app/",
+    demo: "https://simple-resume-maker.vercel.app/",
     github: "https://github.com/Callerstudios/resume-maker",
+  },
+  {
+    title: "Mobile Game API",
+    description:
+      "A RESTful API for game and player management with JWT authentication, CRUD operations, pagination, filtering, sorting, and OpenAPI documentation.",
+    year: "2026",
+    tags: ["C#", "ASP.NET Core", "EF Core", "SQLite"],
+    github: "https://github.com/Callerstudios/game-api",
   },
   {
     title: "PlayPal",
@@ -64,38 +92,58 @@ export const projects: Project[] = [
     tags: ["React", "Firebase", "Game Dev"],
     demo: "https://games-lab-zeta.vercel.app/",
   },
-  {
-    title: "Cryptly",
-    description:
-      "An interactive introduction to encryption with hands-on tools, from Caesar ciphers to modern cryptography.",
-    image: cryptlyImg,
-    year: "2023",
-    tags: ["React", "TypeScript", "Education"],
-    demo: "https://cryptly-snowy.vercel.app/",
-    github: "https://github.com/Callerstudios/my-encryption-app",
-  },
 ];
 
 export const skillGroups = [
-  { title: "Frontend", items: ["React", "TypeScript", "Vue", "Redux", "TailwindCSS", "HTML & CSS"] },
-  { title: "Backend", items: ["Node.js", "Express", "Firebase"] },
-  { title: "Game Dev", items: ["Unity", "C#", "Multiplayer"] },
-  { title: "Tools", items: ["Git", "GitHub", "Vercel"] },
+  {
+    title: "Frontend",
+    items: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Vue",
+      "Redux",
+      "Tailwind CSS",
+      "HTML & CSS",
+    ],
+  },
+  {
+    title: "Backend",
+    items: [
+      "Node.js",
+      "Express.js",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "REST APIs",
+    ],
+  },
+  {
+    title: "Databases",
+    items: ["PostgreSQL", "MySQL", "SQLite", "Firestore"],
+  },
+  {
+    title: "Engineering",
+    items: [
+      "JWT Authentication",
+      "RBAC",
+      "API Design",
+      "Transactions",
+      "Validation",
+      "OpenAPI",
+    ],
+  },
+  {
+    title: "Tools",
+    items: ["Git", "GitHub", "Docker", "Vercel", "Render"],
+  },
 ];
 
 export const experiences = [
   {
-    role: "Freelance Developer",
-    company: "Self-employed",
-    period: "Jan 2022 – Present",
-    description:
-      "Design and build responsive websites and web applications for clients, from first sketch to deployment.",
-  },
-  {
-    role: "Frontend Intern",
-    company: "Tech Company", // TODO: replace with the real company name
+    role: "Software Developer Intern",
+    company: "Codeware Nigeria",
     period: "Jul 2024 – Dec 2024",
     description:
-      "Built reusable UI components and worked alongside backend developers to ship features.",
+      "Built web applications and REST APIs using React, Vue.js, TypeScript, Node.js, and Express.js. Developed reusable components, implemented application features, and collaborated with developers to test and debug applications.",
   },
 ];
